@@ -27,7 +27,7 @@ pipeline {
                 }
             }
         }
-        stage("release stage") {
+        stage("UAT testing stage") {
             when {
                 branch 'PR-*'
             }
@@ -35,7 +35,7 @@ pipeline {
                 echo "this is a peer review stage"
             }
         }
-        stage("release stage") {
+        stage("deploy to staging") {
             when {
                 branch 'release/*'
             }
@@ -43,7 +43,7 @@ pipeline {
                 echo "this is a release stage"
             }
         }
-        stage("release stage") {
+        stage("staging steps") {
             when {
                 branch 'master'
             }
