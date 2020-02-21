@@ -5,12 +5,15 @@ pipeline {
     }
   }
     stages {
-        stage('Non-Parallel Stage') {
+        stage('checkout stage') {
             steps {
                 checkout scm
             }
         }
-        stage('Parallel Stage') {
+        stage('development stage') {
+            when {
+                branch 'feature/*'
+            }
             parallel {
                 stage('Branch A') {
                     steps {
@@ -22,20 +25,30 @@ pipeline {
                         echo "On Branch B"
                     }
                 }
-                stage('Branch C') {
-                    stages {
-                        stage('Nested 1') {
-                            steps {
-                                echo "In stage Nested 1 within Branch C"
-                            }
-                        }
-                        stage('Nested 2') {
-                            steps {
-                                echo "In stage Nested 2 within Branch C"
-                            }
-                        }
-                    }
-                }
+            }
+        }
+        stage("release stage") {
+            when {
+                branch 'PR-*'
+            }
+            steps {
+                echo "this is a peer review stage"
+            }
+        }
+        stage("release stage") {
+            when {
+                branch 'release/*'
+            }
+            steps {
+                echo "this is a release stage"
+            }
+        }
+        stage("release stage") {
+            when {
+                branch 'master'
+            }
+            steps {
+                echo "this is a master deploy stage"
             }
         }
     }
