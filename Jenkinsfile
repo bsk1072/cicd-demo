@@ -13,17 +13,11 @@ pipeline {
         stage('Parallel Stage') {
             parallel {
                 stage('Branch A') {
-                    agent {
-                        label "Agent-node"
-                    }
                     steps {
                         echo "On Branch A"
                     }
                 }
                 stage('Branch B') {
-                    agent {
-                        label "Agent-node"
-                    }
                     steps {
                         echo "On Branch B"
                     }
