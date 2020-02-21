@@ -23,9 +23,6 @@ pipeline {
                     }
                 }
                 stage('Branch C') {
-                    agent {
-                        label "Agent-node"
-                    }
                     stages {
                         stage('Nested 1') {
                             steps {
