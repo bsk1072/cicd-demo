@@ -1,2 +1,2 @@
 # cicd-demo
-demo project
+demo project for cicd test
