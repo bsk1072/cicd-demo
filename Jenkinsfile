@@ -4,6 +4,8 @@ pipeline {
       label 'master'
     }
   }
+  
+  //edit file for demo(to be deleted later)
     stages {
         stage('checkout stage') {
             steps {
