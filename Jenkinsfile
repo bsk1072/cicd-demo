@@ -1,4 +1,4 @@
-@Library('shared-library') _
+@Library('free-shared-library') _
 pipeline {
     agent {
     node {
