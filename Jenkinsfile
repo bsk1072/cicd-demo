@@ -1,3 +1,4 @@
+@Library('shared-library') _
 pipeline {
     agent {
     node {
@@ -11,6 +12,10 @@ pipeline {
             steps {
                 checkout scm
             }
+        }
+        stage('testing shared library') {
+            steps {
+                sayHello 'Santhosh' }
         }
         stage('development stage') {
             when {
