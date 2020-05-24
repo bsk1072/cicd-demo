@@ -1,4 +1,3 @@
-@Library('free-shared-library') _
 pipeline {
     agent {
     node {
