@@ -59,3 +59,7 @@ pipeline {
         }
     }
 }
+
+def sayHello(String) {
+    echo "Hello, ${name}."
+}
