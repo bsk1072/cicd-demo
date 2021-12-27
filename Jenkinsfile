@@ -14,7 +14,7 @@ pipeline {
         }
         stage('testing shared library') {
             steps {
-                sayHello 'Santhosh' }
+                sayHello('Santhosh')}
         }
         stage('development stage') {
             when {
@@ -61,5 +61,5 @@ pipeline {
 }
 
 def sayHello(String) {
-    echo "Hello, ${name}."
+    echo "Hello, ${String}."
 }
